@@ -78,9 +78,9 @@ playAgainButton.addEventListener('click', () => {
 });
 
 function displayScoreboard() {
-    totalDisplay.textContent = total;
-    winsDisplay.textContent = wins;
-    lossesDisplay.textContent = total - wins;
+    // totalDisplay.textContent = total;
+    // winsDisplay.textContent = wins;
+    // lossesDisplay.textContent = total - wins;
     playAgainButton.classList.remove('hidden');
 }
 
@@ -95,7 +95,7 @@ function result(pick, computer) {
         return 1;
     }
     if (pick === 'guess1' && computer !== 'pearl-1') {
-        return 1;
+        return -1;
     }
     if (pick === 'guess2' && computer === 'pearl-2') {
         return 1;
@@ -104,7 +104,7 @@ function result(pick, computer) {
         return -1;
     }
     if (pick === 'guess3' && computer === 'pearl-3') {
-        return -1;
+        return 1;
     }
     if (pick === 'guess3' && computer !== 'pearl-3') {
         return -1;
@@ -126,13 +126,13 @@ function displayGuess() {
 function handleResults(pick) {
     result(pick, computer);
 
-    if (result === 1) {
-        wins++;
-    }
-    if (result === -1) {
-        losses++;
-    }
-    total++;
+    //     if (result === 1) {
+    //         wins++;
+    //     }
+    //     if (result === -1) {
+    //         losses++;
+    //     }
+    //     total++;
 }
 // function choose(userGuess) {
 //     gameState = 'results';
