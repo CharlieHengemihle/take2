@@ -17,7 +17,7 @@ const shell2 = document.getElementById('shell-2');
 const shell3 = document.getElementById('shell-3');
 const playAgainButton = document.getElementById('play-again-button');
 
-let gameState = ['guess', 'results'];
+let gameState = '';
 
 // let guess = [guess1, guess2, guess3];
 
@@ -59,7 +59,7 @@ guess3.addEventListener('click', () => {
 // pearl3.classList.add('hidden');
 function displayShells() {
     // if ((gameState = 'guess')) {
-    if ('guess') {
+    if (gameState.guess) {
         shell1.classList.remove('reveal');
         shell2.classList.remove('reveal');
         shell3.classList.remove('reveal');
@@ -86,7 +86,7 @@ function playAgain() {
 }
 function displayGuess() {
     // if ((gameState = 'results')) {
-    if ('results') {
+    if (gameState.guess) {
         if (guess === guess1) {
             shell1.classList.add('reveal');
         } else {
