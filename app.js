@@ -58,16 +58,16 @@ guess3.addEventListener('click', () => {
 // pearl2.classList.add('hidden');
 // pearl3.classList.add('hidden');
 function displayShells() {
-    if (gameState = 'guess') {
-    shell1.classList.remove('reveal');
-    shell2.classList.remove('reveal');
-    shell3.classList.remove('reveal');
-    display1.classList.add('hidden');
-    display2.classList.add('hidden');
-    display3.classList.add('hidden');
-    playAgainButton.classList.add('hidden');
+    if ((gameState = 'guess')) {
+        shell1.classList.remove('reveal');
+        shell2.classList.remove('reveal');
+        shell3.classList.remove('reveal');
+        display1.classList.add('hidden');
+        display2.classList.add('hidden');
+        display3.classList.add('hidden');
+        playAgainButton.classList.add('hidden');
+    }
 }
-
 playAgainButton.addEventListener('click', () => {
     playAgain();
 });
@@ -163,5 +163,4 @@ loadPage();
 //         paladinButton.classList.add('hidden');
 //         sorcererButton.classList.add('hidden');
 //         againButton.classList.remove('hidden');
-//     }
-// }
+//
