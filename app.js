@@ -16,8 +16,10 @@ const shell1 = document.getElementById('shell-1');
 const shell2 = document.getElementById('shell-2');
 const shell3 = document.getElementById('shell-3');
 const playAgainButton = document.getElementById('play-again-button');
-
-let gameState = '';
+const totalDisplay = document.getElementById('total-display');
+const winsDisplay = document.getElementById('wins-display');
+const lossesDisplay = document.getElementById('losses-display');
+// let gameState = '';
 
 // let guess = [guess1, guess2, guess3];
 
@@ -25,12 +27,12 @@ function loadPage() {
     displayShells();
     getRandomItem.pearl;
     pearl.classList.remove('hidden');
-    gameState = 'guess';
+    // gameState = 'guess';
 }
 
 guess1.addEventListener('click', () => {
     guess = guess1;
-    gameState = 'results';
+    // gameState = 'results';
     shell1.classList.add('reveal');
     displayGuess();
     displayScoreboard();
@@ -38,7 +40,7 @@ guess1.addEventListener('click', () => {
 
 guess2.addEventListener('click', () => {
     guess = guess2;
-    gameState = 'results';
+    // gameState = 'results';
     shell2.classList.add('reveal');
     displayGuess();
     displayScoreboard();
@@ -46,7 +48,7 @@ guess2.addEventListener('click', () => {
 
 guess3.addEventListener('click', () => {
     guess = guess3;
-    gameState = 'results';
+    // gameState = 'results';
     shell3.classList.add('reveal');
     displayGuess();
     displayScoreboard();
@@ -58,17 +60,16 @@ guess3.addEventListener('click', () => {
 // pearl2.classList.add('hidden');
 // pearl3.classList.add('hidden');
 function displayShells() {
-    // if ((gameState = 'guess')) {
-    if (gameState.guess) {
-        shell1.classList.remove('reveal');
-        shell2.classList.remove('reveal');
-        shell3.classList.remove('reveal');
-        display1.classList.add('hidden');
-        display2.classList.add('hidden');
-        display3.classList.add('hidden');
-        playAgainButton.classList.add('hidden');
-    }
+    // if ((gameState = 'guess')) { {
+    shell1.classList.remove('reveal');
+    shell2.classList.remove('reveal');
+    shell3.classList.remove('reveal');
+    display1.classList.add('hidden');
+    display2.classList.add('hidden');
+    display3.classList.add('hidden');
+    // playAgainButton.classList.add('hidden');
 }
+
 playAgainButton.addEventListener('click', () => {
     playAgain();
 });
@@ -77,24 +78,21 @@ function displayScoreboard() {
     totalDisplay.textContent = total;
     winsDisplay.textContent = wins;
     lossesDisplay.textContent = total - wins;
+    playAgainButton.classList.remove('hidden');
 }
 
 function playAgain() {
-    gameState = 'guess';
     displayShells();
     displayScoreboard();
 }
 function displayGuess() {
-    // if ((gameState = 'results')) {
-    if (gameState.guess) {
-        if (guess === guess1) {
-            shell1.classList.add('reveal');
+    if (guess === guess1) {
+        shell1.classList.add('reveal');
+    } else {
+        if (guess === guess2) {
+            shell2.classList.add('reveal');
         } else {
-            if (guess === guess2) {
-                shell2.classList.add('reveal');
-            } else {
-                shell3.classList.add('reveal');
-            }
+            shell3.classList.add('reveal');
         }
     }
 }
