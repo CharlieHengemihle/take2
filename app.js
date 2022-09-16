@@ -59,7 +59,7 @@ guess3.addEventListener('click', () => {
 // pearl3.classList.add('hidden');
 function displayShells() {
     // if ((gameState = 'guess')) {
-    if (gameState === 'guess') {
+    if ('guess') {
         shell1.classList.remove('reveal');
         shell2.classList.remove('reveal');
         shell3.classList.remove('reveal');
@@ -86,7 +86,7 @@ function playAgain() {
 }
 function displayGuess() {
     // if ((gameState = 'results')) {
-    if (gameState === 'results') {
+    if ('results') {
         if (guess === guess1) {
             shell1.classList.add('reveal');
         } else {
