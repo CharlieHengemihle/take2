@@ -46,7 +46,7 @@ guess3.addEventListener('click', () => {
 });
 
 function displayShells() {
-    if ((gameState = 'guess')) {
+    if (gameState = 'guess') {
         pearl1.classList.add('hidden');
         pearl2.classList.add('hidden');
         pearl3.classList.add('hidden');
@@ -59,6 +59,9 @@ function displayShells() {
         playAgainButton.classList.add('hidden');
     }
 }
+
+playAgainButton.addEventListener('click', () => {
+    playAgain();
 
 // function choose(userGuess) {
 //     gameState = 'results';
