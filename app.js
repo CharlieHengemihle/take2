@@ -20,12 +20,12 @@ const totalDisplay = document.getElementById('total-display');
 const winsDisplay = document.getElementById('wins-display');
 const lossesDisplay = document.getElementById('losses-display');
 // let gameState = '';
+let computer = '';
 
 // let guess = [guess1, guess2, guess3];
 
 function loadPage() {
     displayShells();
-    getRandomItem.pearl;
     pearl.classList.remove('hidden');
     // gameState = 'guess';
 }
@@ -35,6 +35,7 @@ guess1.addEventListener('click', () => {
     // gameState = 'results';
     shell1.classList.add('reveal');
     displayGuess();
+    handleResults();
     displayScoreboard();
 });
 
@@ -43,6 +44,7 @@ guess2.addEventListener('click', () => {
     // gameState = 'results';
     shell2.classList.add('reveal');
     displayGuess();
+    handleResults();
     displayScoreboard();
 });
 
@@ -51,6 +53,7 @@ guess3.addEventListener('click', () => {
     // gameState = 'results';
     shell3.classList.add('reveal');
     displayGuess();
+    handleResults();
     displayScoreboard();
 });
 
@@ -85,6 +88,28 @@ function playAgain() {
     displayShells();
     displayScoreboard();
 }
+
+function result(pick, pearl) {
+    if (pick === 'guess1' && pearl === 'pearl-1') {
+        return 1;
+    }
+    if (pick === 'guess1' && pearl !== 'pearl-1') {
+        return 1;
+    }
+    if (pick === 'guess2' && pearl === 'pearl-2') {
+        return 1;
+    }
+    if (pick === 'guess2' && pearl !== 'pearl-2') {
+        return -1;
+    }
+    if (pick === 'guess3' && pearl === 'pearl-3') {
+        return -1;
+    }
+    if (pick === 'guess3' && pearl !== 'pearl-3') {
+        return -1;
+    }
+}
+
 function displayGuess() {
     if (guess === guess1) {
         shell1.classList.add('reveal');
@@ -97,6 +122,17 @@ function displayGuess() {
     }
 }
 
+function handleResults(pick) {
+    const results = result(pick, computer);
+
+    if (result === 1) {
+        wins++;
+    }
+    if (result === -1) {
+        losses++;
+    }
+    total++;
+}
 // function choose(userGuess) {
 //     gameState = 'results';
 //     guess = userGuess;
@@ -114,48 +150,6 @@ function displayGuess() {
 /* Run page load code */
 loadPage();
 
-// function score(pick, pearl) {
-//     if (pick === 'guess1' && pearl === 'pearl-1') {
-//         return 1;
-//         // paladin.classList.add('hidden');
-//     }
-//     if (pick === 'guess1' && pearl !== 'pearl-1') {
-//         return 1;
-//         // rogue.classList.add('hidden');
-//     }
-//     if (pick === 'guess2' && pearl === 'pearl-2') {
-//         return 1;
-//         // sorcerer.classList.add('hidden');
-//     }
-//     if (pick === 'guess2' && pearl !== 'pearl-2') {
-//         return -1;
-//         // sorcerer.classList.add('hidden');
-//     }
-//     if (pick === 'guess3' && pearl === 'pearl-3') {
-//         return -1;
-//         // paladin.classList.add('hidden');
-//     }
-//     if (pick === 'guess3' && pearl !== 'pearl-3') {
-//         return -1;
-//     } else {
-//         return 0;
-//     }
-// }
-
-// function handleFight(pick) {
-//     computer = getRandomItem(fighters);
-//     const result = score(pick, computer);
-
-//     if (result === 1) {
-//         wins++;
-//     }
-//     if (result === 0) {
-//         draws++;
-//     }
-//     if (result === -1) {
-//         losses++;
-//     }
-//     total++;
 //     displayScoreboard();
 //     gameState = 'results';
 //     if (gameState === 'results') {
