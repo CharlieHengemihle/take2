@@ -4,7 +4,7 @@ import { getRandomItem } from './utils.js';
 /* State */
 // let shell = ['shell-1', 'shell-2', 'shell-3'];
 let pearl = ['pearl-1', 'pearl-2', 'pearl-3'];
-// let guess = ['guess-1', 'guess-2', 'guess-3'];
+let guess = ['guess1', 'guess2', 'guess3'];
 const display1 = document.getElementById('display-1');
 const display2 = document.getElementById('display-2');
 const display3 = document.getElementById('display-3');
@@ -58,7 +58,8 @@ guess3.addEventListener('click', () => {
 // pearl2.classList.add('hidden');
 // pearl3.classList.add('hidden');
 function displayShells() {
-    if ((gameState = 'guess')) {
+    // if ((gameState = 'guess')) {
+    if (gameState === 'guess') {
         shell1.classList.remove('reveal');
         shell2.classList.remove('reveal');
         shell3.classList.remove('reveal');
@@ -83,19 +84,20 @@ function playAgain() {
     displayShells();
     displayScoreboard();
 }
-// function displayGuess() {
-// if ((gameState = 'results')) {
-//     if (guess === guess1) {
-//         shell1.classList.add('reveal');
-//     } else {
-//         if (guess === guess2) {
-//             shell2.classList.add('reveal');
-//         } else {
-//             shell3.classList.add('reveal');
-//         }
-//     }
-// }
-// }
+function displayGuess() {
+    // if ((gameState = 'results')) {
+    if (gameState === 'results') {
+        if (guess === guess1) {
+            shell1.classList.add('reveal');
+        } else {
+            if (guess === guess2) {
+                shell2.classList.add('reveal');
+            } else {
+                shell3.classList.add('reveal');
+            }
+        }
+    }
+}
 
 // function choose(userGuess) {
 //     gameState = 'results';
