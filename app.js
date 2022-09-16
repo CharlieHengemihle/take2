@@ -16,9 +16,9 @@ const shell1 = document.getElementById('shell-1');
 const shell2 = document.getElementById('shell-2');
 const shell3 = document.getElementById('shell-3');
 const playAgainButton = document.getElementById('play-again-button');
-const totalDisplay = document.getElementById('total-display');
-const winsDisplay = document.getElementById('wins-display');
-const lossesDisplay = document.getElementById('losses-display');
+// const totalDisplay = document.getElementById('total-display');
+// const winsDisplay = document.getElementById('wins-display');
+// const lossesDisplay = document.getElementById('losses-display');
 // let gameState = '';
 let computer = '';
 
