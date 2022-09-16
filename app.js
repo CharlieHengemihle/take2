@@ -15,8 +15,9 @@ const guess3 = document.getElementById('guess-3');
 const shell1 = document.getElementById('shell-1');
 const shell2 = document.getElementById('shell-2');
 const shell3 = document.getElementById('shell-3');
+const playAgainButton = document.getElementById('play-again-button');
 
-const gameState = ['guess', 'results'];
+let gameState = ['guess', 'results'];
 
 // let guess = [guess1, guess2, guess3];
 
@@ -31,37 +32,70 @@ guess1.addEventListener('click', () => {
     guess = guess1;
     gameState = 'results';
     shell1.classList.add('reveal');
+    displayGuess();
+    displayScoreboard();
 });
 
 guess2.addEventListener('click', () => {
     guess = guess2;
     gameState = 'results';
     shell2.classList.add('reveal');
+    displayGuess();
+    displayScoreboard();
 });
 
 guess3.addEventListener('click', () => {
     guess = guess3;
     gameState = 'results';
     shell3.classList.add('reveal');
+    displayGuess();
+    displayScoreboard();
 });
 
+// function displayShells() {
+//     if (gameState = 'guess') {
+// pearl1.classList.add('hidden');
+// pearl2.classList.add('hidden');
+// pearl3.classList.add('hidden');
 function displayShells() {
     if (gameState = 'guess') {
-        pearl1.classList.add('hidden');
-        pearl2.classList.add('hidden');
-        pearl3.classList.add('hidden');
-        shell1.classList.remove('reveal');
-        shell2.classList.remove('reveal');
-        shell3.classList.remove('reveal');
-        display1.classList.add('hidden');
-        display2.classList.add('hidden');
-        display3.classList.add('hidden');
-        playAgainButton.classList.add('hidden');
-    }
+    shell1.classList.remove('reveal');
+    shell2.classList.remove('reveal');
+    shell3.classList.remove('reveal');
+    display1.classList.add('hidden');
+    display2.classList.add('hidden');
+    display3.classList.add('hidden');
+    playAgainButton.classList.add('hidden');
 }
 
 playAgainButton.addEventListener('click', () => {
     playAgain();
+});
+
+function displayScoreboard() {
+    totalDisplay.textContent = total;
+    winsDisplay.textContent = wins;
+    lossesDisplay.textContent = total - wins;
+}
+
+function playAgain() {
+    gameState = 'guess';
+    displayShells();
+    displayScoreboard();
+}
+// function displayGuess() {
+// if ((gameState = 'results')) {
+//     if (guess === guess1) {
+//         shell1.classList.add('reveal');
+//     } else {
+//         if (guess === guess2) {
+//             shell2.classList.add('reveal');
+//         } else {
+//             shell3.classList.add('reveal');
+//         }
+//     }
+// }
+// }
 
 // function choose(userGuess) {
 //     gameState = 'results';
@@ -79,3 +113,55 @@ playAgainButton.addEventListener('click', () => {
 
 /* Run page load code */
 loadPage();
+
+// function score(pick, pearl) {
+//     if (pick === 'guess1' && pearl === 'pearl-1') {
+//         return 1;
+//         // paladin.classList.add('hidden');
+//     }
+//     if (pick === 'guess1' && pearl !== 'pearl-1') {
+//         return 1;
+//         // rogue.classList.add('hidden');
+//     }
+//     if (pick === 'guess2' && pearl === 'pearl-2') {
+//         return 1;
+//         // sorcerer.classList.add('hidden');
+//     }
+//     if (pick === 'guess2' && pearl !== 'pearl-2') {
+//         return -1;
+//         // sorcerer.classList.add('hidden');
+//     }
+//     if (pick === 'guess3' && pearl === 'pearl-3') {
+//         return -1;
+//         // paladin.classList.add('hidden');
+//     }
+//     if (pick === 'guess3' && pearl !== 'pearl-3') {
+//         return -1;
+//     } else {
+//         return 0;
+//     }
+// }
+
+// function handleFight(pick) {
+//     computer = getRandomItem(fighters);
+//     const result = score(pick, computer);
+
+//     if (result === 1) {
+//         wins++;
+//     }
+//     if (result === 0) {
+//         draws++;
+//     }
+//     if (result === -1) {
+//         losses++;
+//     }
+//     total++;
+//     displayScoreboard();
+//     gameState = 'results';
+//     if (gameState === 'results') {
+//         rogueButton.classList.add('hidden');
+//         paladinButton.classList.add('hidden');
+//         sorcererButton.classList.add('hidden');
+//         againButton.classList.remove('hidden');
+//     }
+// }
