@@ -89,23 +89,24 @@ function playAgain() {
     displayScoreboard();
 }
 
-function result(pick, pearl) {
-    if (pick === 'guess1' && pearl === 'pearl-1') {
+function result(pick, computer) {
+    computer = getRandomItem(pearl);
+    if (pick === 'guess1' && computer === 'pearl-1') {
         return 1;
     }
-    if (pick === 'guess1' && pearl !== 'pearl-1') {
+    if (pick === 'guess1' && computer !== 'pearl-1') {
         return 1;
     }
-    if (pick === 'guess2' && pearl === 'pearl-2') {
+    if (pick === 'guess2' && computer === 'pearl-2') {
         return 1;
     }
-    if (pick === 'guess2' && pearl !== 'pearl-2') {
+    if (pick === 'guess2' && computer !== 'pearl-2') {
         return -1;
     }
-    if (pick === 'guess3' && pearl === 'pearl-3') {
+    if (pick === 'guess3' && computer === 'pearl-3') {
         return -1;
     }
-    if (pick === 'guess3' && pearl !== 'pearl-3') {
+    if (pick === 'guess3' && computer !== 'pearl-3') {
         return -1;
     }
 }
@@ -123,7 +124,7 @@ function displayGuess() {
 }
 
 function handleResults(pick) {
-    const results = result(pick, computer);
+    result(pick, computer);
 
     if (result === 1) {
         wins++;
